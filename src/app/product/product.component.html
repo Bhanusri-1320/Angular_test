@@ -1,0 +1,21 @@
+<mat-card appearance="outlined" class="card">
+  <mat-card-content>
+    <div class="main">
+      <img src="{{ product.image }}" alt="" />
+      <div class="title">
+        <h2>{{ product.name }}</h2>
+        <button
+          mat-icon-button
+          aria-label="Example icon button with a vertical three dot icon"
+          routerLink="{{ product.id }}"
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
+      <div class="price">
+        <h1>{{ product.price }}</h1>
+        <button mat-raised-button>➕Cart</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

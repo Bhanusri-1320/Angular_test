@@ -1,0 +1,14 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class ProductsService {
+  Products: any;
+  constructor() {}
+  getProducts() {
+    return fetch('https://66b0a8376a693a95b539a518.mockapi.io/Products').then(
+      (res) => res.json()
+    );
+  }
+}
