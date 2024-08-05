@@ -4,16 +4,11 @@
       <img src="{{ Products.image }}" alt="" />
       <div class="title">
         <h2>{{ Products.name }}</h2>
-        <button
-          mat-icon-button
-          aria-label="Example icon button with a vertical three dot icon"
-        >
-          <mat-icon>info</mat-icon>
-        </button>
+        <h1>{{ Products.price }}</h1>
       </div>
       <div class="price">
-        <h1>{{ Products.price }}</h1>
-        <button mat-raised-button>➕Cart</button>
+        <p>{{ Products.description }}</p>
+        <h3>Quantity:{{ Products.quantity }}</h3>
       </div>
     </div>
   </mat-card-content>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -26,4 +26,9 @@ export class ProductComponent {
     price: '$899.99',
   };
   @Input() id: any;
+  @Output() cartEvent = new EventEmitter<any>();
+  cart() {
+    console.log('cart container..');
+    this.cartEvent.emit(this.product);
+  }
 }
