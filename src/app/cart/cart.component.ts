@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../products.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Route, Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,7 +20,8 @@ export class CartComponent {
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute, // DI
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private router: Router
   ) {}
   ngOnInit() {
     this.ProductsList = this.productService.gettingCart();
@@ -31,8 +32,11 @@ export class CartComponent {
     this.Products = this.ProductsList[0];
     // this.Products = this.productService.gettingCart();
   }
-  // deleteProduct() {
-  //   console.log('deleting..');
-  //   this.productService.deleteProduct(this.Products.id);
-  // }
+  deleteProduct() {
+    console.log('deleting..');
+    this.productService.deleteProduct(this.Products.id);
+  }
+  orders() {
+    this.router.navigate([`orders`]);
+  }
 }
