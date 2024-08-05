@@ -15,12 +15,23 @@ import { DomSanitizer } from '@angular/platform-browser';
   styleUrl: './product-details.component.scss',
 })
 export class ProductDetailsComponent {
-  Products: any;
+  Products: any = [
+    {
+      id: 'E001',
+      name: 'Smartphone XYZ Pro',
+      image:
+        'https://m.media-amazon.com/images/I/314Rp+8XKWL._AC_SR300,300.jpg',
+      price: '$899.99',
+      description:
+        'A high-end smartphone with a 6.7-inch display and top-notch performance.',
+      quantity: 25,
+    },
+  ];
+  arr: any = this.Products;
   // constructor(productService: ProductsService) {
   //   this.Products = productService.Products;
   //   console.log(this.Products);
   // }
-
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute, // DI
@@ -38,6 +49,7 @@ export class ProductDetailsComponent {
     let id = this.route.snapshot.paramMap.get('id') as string;
     this.productService.getProductsById(id).then((data: any) => {
       this.Products = data;
+      this.arr.push(data);
     });
   }
 }

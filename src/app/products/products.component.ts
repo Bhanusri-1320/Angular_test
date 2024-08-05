@@ -26,4 +26,9 @@ export class ProductsComponent {
       this.isLoading = false;
     });
   }
+  cart(product: any) {
+    console.log(product);
+    this.productServie.addingCart(product);
+    //    this.route.navigate([`cart/${product.id}`]);
+  }
 }

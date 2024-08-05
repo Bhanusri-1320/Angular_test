@@ -3,7 +3,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
+import { Route, Router, RouterLink } from '@angular/router';
+import { ProductsService } from '../products.service';
 
 @Component({
   selector: 'app-product',
@@ -19,6 +20,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
+  constructor(private productService: ProductsService, private route: Router) {}
   @Input() product: any = {
     id: 'E001',
     name: 'Smartphone XYZ Pro',
@@ -30,5 +32,6 @@ export class ProductComponent {
   cart() {
     console.log('cart container..');
     this.cartEvent.emit(this.product);
+    this.productService.addingCart(this.product);
   }
 }
