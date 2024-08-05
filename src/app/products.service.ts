@@ -29,12 +29,30 @@ export class ProductsService {
       }
     ).then((res) => res.json());
   }
+  // addingCart(product: any) {
+  //   console.log(product);
+  //   this.CartData.push(product);
+  //   console.log(this.CartData);
+  // }
   addingCart(product: any) {
-    console.log(product);
-    this.CartData.push(product);
-    console.log(this.CartData);
+    // this.movies.push(newMovie);
+    // this.CartData.push(product);
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const existingProductIndex = cart.findIndex(
+      (item: { id: any }) => item.id === product.id
+    );
+
+    if (existingProductIndex >= 0) {
+      // Product already in cart, increment quantity
+      cart[existingProductIndex].quantity += 1;
+    } else {
+      // Add new product to cart
+      product.quantity = 1; // Initialize quantity
+      cart.push(product);
+    }
   }
   gettingCart() {
+    console.log(this.CartData);
     return this.CartData;
   }
 }
