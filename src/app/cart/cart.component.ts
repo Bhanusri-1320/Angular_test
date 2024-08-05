@@ -16,18 +16,23 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class CartComponent {
   Products: any;
-
+  ProductsList = [];
   constructor(
     private productService: ProductsService,
     private route: ActivatedRoute, // DI
     private sanitizer: DomSanitizer
   ) {}
   ngOnInit() {
-    this.Products = this.productService.gettingCart();
+    this.ProductsList = this.productService.gettingCart();
+    // for (let Product of this.ProductsList) {
+    //   this.Products = Product;
+    // }
+    console.log(this.ProductsList);
+    this.Products = this.ProductsList[0];
+    // this.Products = this.productService.gettingCart();
   }
-
-  deleteProduct() {
-    console.log('deleting..');
-    this.productService.deleteProduct(this.Products.id);
-  }
+  // deleteProduct() {
+  //   console.log('deleting..');
+  //   this.productService.deleteProduct(this.Products.id);
+  // }
 }

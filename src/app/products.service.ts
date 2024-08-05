@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProductsService {
   Products: any;
-  CartData: any;
+  CartData: any = [];
   constructor() {
     fetch('https://66b0a8376a693a95b539a518.mockapi.io/Products')
       .then((res) => res.json())
@@ -30,7 +30,9 @@ export class ProductsService {
     ).then((res) => res.json());
   }
   addingCart(product: any) {
+    console.log(product);
     this.CartData.push(product);
+    console.log(this.CartData);
   }
   gettingCart() {
     return this.CartData;

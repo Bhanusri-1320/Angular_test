@@ -31,7 +31,7 @@ export class ProductComponent {
   @Output() cartEvent = new EventEmitter<any>();
   cart() {
     console.log('cart container..');
-    this.cartEvent.emit(this.product);
+    //this.cartEvent.emit(this.product);
     this.productService.addingCart(this.product);
   }
 }
