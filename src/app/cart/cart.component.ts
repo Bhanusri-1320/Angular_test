@@ -28,7 +28,7 @@ export class CartComponent {
     // for (let Product of this.ProductsList) {
     //   this.Products = Product;
     // }
-    console.log(this.ProductsList);
+    console.log(this.ProductsList[0]);
     this.Products = this.ProductsList[0];
     // this.Products = this.productService.gettingCart();
   }
