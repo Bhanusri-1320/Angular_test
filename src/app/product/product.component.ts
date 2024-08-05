@@ -25,4 +25,5 @@ export class ProductComponent {
     image: 'https://m.media-amazon.com/images/I/314Rp+8XKWL._AC_SR300,300.jpg',
     price: '$899.99',
   };
+  @Input() id: any;
 }

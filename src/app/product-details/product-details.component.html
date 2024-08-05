@@ -1,1 +1,20 @@
-<p>product-details works!</p>
+<mat-card appearance="outlined" class="card">
+  <mat-card-content>
+    <div class="main">
+      <img src="{{ Products.image }}" alt="" />
+      <div class="title">
+        <h2>{{ Products.name }}</h2>
+        <button
+          mat-icon-button
+          aria-label="Example icon button with a vertical three dot icon"
+        >
+          <mat-icon>info</mat-icon>
+        </button>
+      </div>
+      <div class="price">
+        <h1>{{ Products.price }}</h1>
+        <button mat-raised-button>➕Cart</button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
